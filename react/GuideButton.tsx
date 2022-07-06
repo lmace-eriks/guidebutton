@@ -5,17 +5,23 @@ import React, { ReactChildren } from 'react';
 import styles from "./styles.css";
 
 interface GuideButtonProps {
-
+  link: string
+  imgSrc: string
+  text: string
+  newTab: boolean
 }
 
-const GuideButton: StorefrontFunctionComponent<GuideButtonProps> = ({ }) => {
+const GuideButton: StorefrontFunctionComponent<GuideButtonProps> = ({ link, imgSrc, text, newTab }) => {
+
+  if (!imgSrc) return <></>
+  if (!link) return <></>
 
   return (
     <div className={styles.buttonContainer}>
       <div className={styles.buttonWrapper}>
-        <a role="button" className={styles.button}>
-          <span className={styles.buttonText}>Bike Buying Guide</span>
-          <img src="https://eriksbikeshop.vtexassets.com/arquivos/bike-guide-hub.jpg" className={styles.buttonImage} />
+        <a href={link} target={newTab ? "_blank" : "_self"} className={styles.button}>
+          {text && <p className={styles.buttonText}>{text}</p>}
+          <img src={imgSrc} alt="" className={styles.buttonImage} />
         </a>
       </div>
     </div>
@@ -23,10 +29,30 @@ const GuideButton: StorefrontFunctionComponent<GuideButtonProps> = ({ }) => {
 }
 
 GuideButton.schema = {
-  title: 'editor.guidebutton.title',
-  description: 'editor.guidebutton.description',
+  title: 'Guide Button',
+  description: '',
   type: 'object',
-  properties: {}
+  properties: {
+    text: {
+      title: "Button Text",
+      description: "Optional - Text overlayed on top of image.",
+      type: "string"
+    },
+    imgSrc: {
+      title: "Image Source",
+      description: "REQUIRED - Absolute path to image.",
+      type: "string"
+    },
+    link: {
+      title: "Link",
+      description: "REQUIRED - Absolute or Relative path url.",
+      type: "string"
+    },
+    newTab: {
+      title: "Open in new tab?",
+      type: "boolean"
+    }
+  }
 }
 
 export default GuideButton;
