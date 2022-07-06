@@ -1,0 +1,6 @@
+{
+  "guidebutton": {
+    "component": "GuideButton",
+    "composition": "children"
+  }
+}
