@@ -1,7 +1,7 @@
 {
   "vendor": "eriksbikeshop",
   "name": "guidebutton",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "title": "GuideButton",
   "description": "GuideButton component",
   "defaultLocale": "pt-BR",
