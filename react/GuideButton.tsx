@@ -28,7 +28,7 @@ const GuideButton: StorefrontFunctionComponent<GuideButtonProps> = ({ link, imgS
         {text && <div className={styles.buttonText}>{text}</div>}
       </div>
     </Link>
-  )
+  );
 }
 
 GuideButton.schema = {
